@@ -40,8 +40,14 @@ export default function TextForm(props) {
     setText(event.target.value);
   }
 
-    const [text, setText] = useState('');
+  const [text, setText] = useState('');
 
+  const textCounter = text.split(/\s+/).filter(word => word.trim() !== '');
+  const wordCount = textCounter.length;
+  const characterCount = textCounter.join().length;
+  const sentenceArray = text.split(/[.!?]+/).filter(sentence => sentence.trim() !== '');
+  const sentenceCount = sentenceArray.length;
+  
   // text = 'new text';
   // setText ('new text';)
   return (
@@ -59,7 +65,7 @@ export default function TextForm(props) {
     </div>
     <div className="container my-3" style={{color: props.mode === 'dark'?'white':'#021942'}}>
       <h2>Your text summary</h2>
-      <p><b> {text.split(".").length} </b> sentences, <b> {text.split(" ").length} </b> words, <b> {text.length} </b> characters and <b> {text.split(" ").length - 1} </b> Spaces </p>
+      <p><b> {sentenceCount} </b> sentences, <b> {wordCount} </b> words, <b> {characterCount} </b> characters and <b> {text.split(" ").length - 1} </b> Spaces </p>
       <p></p>
       <p><b> {0.008 * text.split(" ").length} </b> minites read</p>
       <h2>Preview</h2>
