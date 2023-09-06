@@ -1,14 +1,14 @@
 import './App.css';
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import React, { useState } from 'react';
-// import {
-//   BrowserRouter,
-//   Routes,
-//   Route
-// } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
 
@@ -24,7 +24,20 @@ function App() {
         setAlert(null)
       }, 1500);
   }
-  const toggleMode = ()=> {
+
+  // const removeBodyClasses = ()=>{
+  //   document.body.classList.remove('bg-light');
+  //   document.body.classList.remove('bg-dark');
+  //   document.body.classList.remove('bg-primary');
+  //   document.body.classList.remove('bg-danger');
+  //   document.body.classList.remove('bg-success');
+  //   document.body.classList.remove('bg-warning');
+  // }
+
+  const toggleMode = (cls)=> {
+    // removeBodyClasses();
+    // console.log(cls);
+    // document.body.classList.add('bg-'+cls);
     if (mode === 'light') {
       setMode('dark');
       document.body.style.backgroundColor = '#021942';
@@ -55,20 +68,25 @@ function App() {
 
   return (
     <>
-    {/* <BrowserRouter> */}
+    <BrowserRouter>
     <Navbar title='TextUtils' abouttext='About'  mode={mode} toggleMode={toggleMode} />
     <Alert alert={alert} />
     <div className="container my-3">
-    <TextForm showAlert={showAlert} heading="Try TextUtils -- Word Counter,  Character Counter, Sentence Counter, Remove Extra Spaces" mode={mode} />
-    
-        {/* <Routes>
+    {/* <TextForm showAlert={showAlert} heading="Try TextUtils -- Word Counter,  Character Counter, Sentence Counter, Remove Extra Spaces" mode={mode} /> */}
+        <Routes>
           <Route exact path="/about" element={<About mode={mode} />}>
           </Route>
           <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Try TextUtils -- Word Counter,  Character Counter, Sentence Counter, Remove Extra Spaces" mode={mode} />}>
           </Route>
-        </Routes> */}
+        </Routes>
+        
     </div>
-    {/* </BrowserRouter> */}
+    </BrowserRouter>
+    <div className="container-fluid">
+    <div style={{backgroundColor: "#fff"}}>
+        <p className='p-3'>© 2023 Copyright: KowshickChowdhury</p>
+        </div>
+    </div>
     </>
   );
 }

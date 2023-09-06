@@ -17,10 +17,7 @@ export default function TextForm(props) {
   }
 
   const handleCopyClick = ()=>{
-    var text = document.getElementById('myBox');
-    text.select();
-    navigator.clipboard.writeText(text.value);
-    document.getSelection().removeAllRanges();
+    navigator.clipboard.writeText(text);
     props.showAlert("Copied to Clipboard!", "success");
   }
 
@@ -60,7 +57,7 @@ export default function TextForm(props) {
             <textarea className="form-control" style={{backgroundColor: props.mode === 'dark'?'#004768':'white',color: props.mode === 'dark'?'white':'#021942'}} value={text} id="myBox" onChange={handleOnchange} rows="8"></textarea>
         </div>
         <div style={{textAlign:"center"}}>
-        <div className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>Convert to Uppercase</div>
+        <div className="btn btn-primary mx-1 my-1" disabled={text.split() === !0} onClick={handleUpClick}>Convert to Uppercase</div>
         <div className="btn btn-primary mx-1 my-1" onClick={handleLoClick}>Convert to Lowercase</div>
         <div className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>Remove Extra Spaces</div>
         <div className="btn btn-primary mx-1 my-1" onClick={handleCopyClick}>Copy Text</div>
@@ -69,7 +66,7 @@ export default function TextForm(props) {
     </div>
     <div className="container my-3"  style={{color: props.mode === 'dark'?'white':'#021942', textAlign:"center"}}>
       <h2>Your text summary</h2>
-      <p><b> {sentenceCount} </b> sentences, <b> {text.split(" ").filter((element)=>{return element.length!==0}).length} </b> words, <b> {characterCount} </b> characters and <b> {text.split(" ").length - 1} </b> Spaces </p>
+      <p><b> {sentenceCount} </b> sentences, <b> {text.split(/\s+/).filter((element)=>{return element.length!==0}).length} </b> words, <b> {characterCount} </b> characters and <b> {text.split(" ").length - 1} </b> Spaces </p>
       <p></p>
       <p><b> {0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} </b> minites read</p>
       <h2>Preview</h2>
