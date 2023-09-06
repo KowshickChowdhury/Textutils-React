@@ -1,14 +1,14 @@
 import './App.css';
-import About from './components/About';
+// import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import React, { useState } from 'react';
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
+// import {
+//   BrowserRouter,
+//   Routes,
+//   Route
+// } from "react-router-dom";
 
 function App() {
 
@@ -55,20 +55,20 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
     <Navbar title='TextUtils' abouttext='About'  mode={mode} toggleMode={toggleMode} />
     <Alert alert={alert} />
     <div className="container my-3">
-    {/* <TextForm showAlert={showAlert} heading="Try TextUtils -- Word Counter,  Character Counter, Sentence Counter, Remove Extra Spaces" mode={mode} /> */}
+    <TextForm showAlert={showAlert} heading="Try TextUtils -- Word Counter,  Character Counter, Sentence Counter, Remove Extra Spaces" mode={mode} />
     
-        <Routes>
+        {/* <Routes>
           <Route exact path="/about" element={<About mode={mode} />}>
           </Route>
           <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Try TextUtils -- Word Counter,  Character Counter, Sentence Counter, Remove Extra Spaces" mode={mode} />}>
           </Route>
-        </Routes>
+        </Routes> */}
     </div>
-    </BrowserRouter>
+    {/* </BrowserRouter> */}
     </>
   );
 }
