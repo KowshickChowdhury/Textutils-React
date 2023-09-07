@@ -1,2 +1,8 @@
 .accordion-button::after {
-    filter: invert(1);}
+    filter: invert(1);
+}
+
+.footercls {
+    padding: 0;
+    height: 0;
+}

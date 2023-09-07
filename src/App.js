@@ -9,6 +9,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import Footer from './components/Footer';
 
 function App() {
 
@@ -67,7 +68,6 @@ function App() {
   }
 
   return (
-    <>
     <BrowserRouter>
     <Navbar title='TextUtils' abouttext='About'  mode={mode} toggleMode={toggleMode} />
     <Alert alert={alert} />
@@ -81,13 +81,9 @@ function App() {
         </Routes>
         
     </div>
+    <Footer footertext='© 2023 Copyright: KowshickChowdhury' mode={mode} />
     </BrowserRouter>
-    <div className="container-fluid">
-    <div style={{backgroundColor: "#fff"}}>
-        <p className='p-3'>© 2023 Copyright: KowshickChowdhury</p>
-        </div>
-    </div>
-    </>
+  
   );
 }
 

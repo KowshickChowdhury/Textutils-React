@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function About(props) {
     // const [myStyle, setMyStyle] = useState({
@@ -33,6 +33,7 @@ export default function About(props) {
     // } 
     
   return (
+    <>
     <div className='container' style={myStyle}>
         <h1 className='my-3' style={{textAlign:"center"}}>About Us</h1>
       <div className="accordion" id="accordionExample">
@@ -77,5 +78,6 @@ export default function About(props) {
             <button onClick={toggleStyle} type='button' className='btn btn-primary'>{btntext}</button>
         </div> */}
     </div>
+    </>
   )
 }
